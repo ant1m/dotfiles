@@ -10,8 +10,10 @@
 	remotes = remote --verbose
 	aliases = config --get-regexp alias
 	amend = commit --amend --reuse-message=HEAD
-
+	cam = commit -am
+	reh = rebase --hard
 [core]
+	editor = vim
 	excludesfile = ~/.gitignore
 	untrackedCache = true
 
@@ -20,8 +22,12 @@
 
 [diff]
 	renames = copies
+	tool = diffuse
 
 [diff "bin"]
 	textconv = hexdump -v -C
 
+[delta]
+	features = line-numbers decorations
+	line-numbers = true
 
