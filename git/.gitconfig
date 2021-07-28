@@ -1,0 +1,27 @@
+[user]
+	name = $GITLAB_USER
+	email = $GITLAB_MAIL
+[alias]
+	l = log --pretty=oneline -n 10  --abbrev-commit --graph
+	s = status -s
+	c = clone --recursive
+	tags = tag -l
+	branches = branch --all
+	remotes = remote --verbose
+	aliases = config --get-regexp alias
+	amend = commit --amend --reuse-message=HEAD
+
+[core]
+	excludesfile = ~/.gitignore
+	untrackedCache = true
+
+[color]
+	ui = auto
+
+[diff]
+	renames = copies
+
+[diff "bin"]
+	textconv = hexdump -v -C
+
+
