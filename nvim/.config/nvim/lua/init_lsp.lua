@@ -49,6 +49,16 @@ local on_attach = function(client, bufnr)
 
 end
 
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+  vim.lsp.diagnostic.on_publish_diagnostics, {
+    signs = false,
+    update_in_insert = false,
+    virtual_text = true,
+    underline = true,
+  }
+)
+ 
+
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
 local servers = { "pyright", "gopls", "yamlls" }

@@ -31,3 +31,5 @@
 	features = line-numbers decorations
 	line-numbers = true
 
+[url "ssh://git@git-oab.si.fr.intraorange/"]
+	insteadOf = https://git-oab.si.fr.intraorange/
