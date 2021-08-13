@@ -1,5 +1,5 @@
-local statusline = require('statusline')
-statusline.tabline = false
+require('lualine').setup()
+options = {theme = 'gruvbox'}
 
 vim.o.completeopt = "menuone,noselect"
 
@@ -61,7 +61,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { "pyright", "gopls", "yamlls" }
+local servers = { "pyright", "gopls", "yamlls", "sumneko_lua" }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup { on_attach = on_attach }
 end
@@ -71,5 +71,7 @@ lspconfig.yamlls.setup{
         yaml = {
            schemas = { kubernetes = "globPattern" },
       }
+   }
 }
-}
+
+

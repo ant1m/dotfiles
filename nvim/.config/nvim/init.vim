@@ -2,20 +2,22 @@ call plug#begin()
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'neovim/nvim-lspconfig'
 Plug 'ervandew/supertab'
-Plug 'beauwilliams/statusline.lua'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-Plug 'morhetz/gruvbox'
+Plug 'sainnhe/gruvbox-material'
 Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-fugitive'
+Plug 'hoob3rt/lualine.nvim'
+Plug 'kyazdani42/nvim-web-devicons'
 call plug#end()
 
 filetype plugin indent on
-colorscheme gruvbox
+colorscheme gruvbox-material
 set background=dark
 
 luafile ~/.config/nvim/lua/init_lsp.lua
+luafile ~/.config/nvim/lua/init_lua_lsp.lua
 luafile ~/.config/nvim/lua/init_telescope.lua
 
 hi link LspDiagnosticsDefaultError GruvboxRed 
