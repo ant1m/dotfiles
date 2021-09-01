@@ -4,17 +4,24 @@ options = {theme = 'gruvbox'}
 vim.o.completeopt = "menuone,noselect"
 
 lspconfig = require "lspconfig"
-  lspconfig.gopls.setup {
-    cmd = {"gopls", "serve"},
-    settings = {
-      gopls = {
-        analyses = {
-          unusedparams = true,
-        },
-        staticcheck = true,
-      },
-    },
-  }
+lspconfig.gopls.setup {
+	cmd = {"gopls", "serve"},
+	settings = {
+		gopls = {
+			analyses = {
+				unusedparams = true,
+			},
+			staticcheck = true,
+		},
+	},
+	lspconfig.ccls.setup {
+		init_options = {
+			cache = {
+				directory = ".ccls-cache";
+			};
+		}
+	}
+}
 
 local nvim_lsp = require('lspconfig')
 -- Disable diagnostics
@@ -57,11 +64,10 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     underline = true,
   }
 )
- 
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { "pyright", "gopls", "yamlls", "sumneko_lua" }
+local servers = { "pyright", "gopls", "yamlls", "sumneko_lua", "clangd"}
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup { on_attach = on_attach }
 end
@@ -73,5 +79,4 @@ lspconfig.yamlls.setup{
       }
    }
 }
-
 

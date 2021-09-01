@@ -1,0 +1,51 @@
+[global]
+    title = Dunst
+    class = Dunst
+    follow = mouse
+    indicate_hidden = yes
+    shrink = no
+    format = "<span font_desc='Inconsolata 11' weight="bold">%s</span>\n\n%b"    
+    transparency = 10
+    separator_height = 10
+    padding = 10
+    frame_color = "#1D2021"
+    separator_color = "#32302f"
+   
+    line_height = 0
+    alignment = center
+    
+    idle_threshold = 120
+    show_age_threshold = 60
+    sort = no
+    word_wrap = yes
+    ignore_newline = no
+    stack_duplicates = false
+    hide_duplicate_count = yes
+    show_indicators = no
+    sticky_history = no
+    history_length = 20
+    always_run_script = true
+    corner_radius = 0
+    icon_position = left
+    max_icon_size = 96
+    
+[urgency_low]
+    # IMPORTANT: colors have to be defined in quotation marks.
+    # Otherwise the "#" and following would be interpreted as a comment.
+    background = "#465946"
+    foreground = "#e8e5c3"
+    timeout = 0
+
+[urgency_normal]
+    background = "#465946"
+    foreground = "#e8e5c3"
+    timeout = 0
+
+[urgency_critical]
+    background = "#801717"
+    foreground = "#e8e5c3"
+    timeout = 0
+
+
+# See dunst(5) for all configuration options
+

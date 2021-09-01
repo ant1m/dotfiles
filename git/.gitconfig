@@ -33,3 +33,6 @@
 
 [url "ssh://git@git-oab.si.fr.intraorange/"]
 	insteadOf = https://git-oab.si.fr.intraorange/
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/local/bin/gh auth git-credential
