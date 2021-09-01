@@ -5,7 +5,7 @@ function tmux_vpn() {
 }
 
 function battery() {
-	echo $(acpi -b | cut -d " " -f4)
+	echo $(acpi -b | cut -d " " -f4 | sed 's/,//g') 
 	acpi -a | grep -q on-line && echo -n "+" || echo -n "-"
 }
 
@@ -16,4 +16,5 @@ function bluetooth() {
 function interfaces() {
 	ip link 2>/dev/null | grep -v DOWN | cut -d " " -f 2 | xargs | cut -d " " -f2- | sed 's/://g'
 }
+
 echo "|" $(bluetooth) "|" $(battery) "|" $(interfaces) "|"
