@@ -8,7 +8,7 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'sainnhe/gruvbox-material'
 Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-fugitive'
-Plug 'hoob3rt/lualine.nvim'
+"Plug 'hoob3rt/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'glepnir/lspsaga.nvim'
 call plug#end()
@@ -21,6 +21,8 @@ hi Normal ctermbg=NONE
 luafile ~/.config/nvim/lua/init_lsp.lua
 luafile ~/.config/nvim/lua/init_lua_lsp.lua
 luafile ~/.config/nvim/lua/init_telescope.lua
+
+set rtp+=~/.config/nvim/lua/perso
 "luafile ~/.config/nvim/lua/init_treesitter.lua
 
 hi link LspDiagnosticsDefaultError GruvboxRed 
@@ -41,6 +43,7 @@ let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 let g:UltiSnipsExpandTrigger="<tab>"
 
 inoremap <C-,> <ESC>
+nnoremap <C-s> :w<CR>
 inoremap <C-s> <ESC>:w<CR>
 nnoremap <leader>ev :e $MYVIMRC<CR>
 nnoremap <leader>sv :so $MYVIMRC<CR>
@@ -57,7 +60,7 @@ nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 nnoremap <leader>fs <cmd>lua require('telescope.builtin').lsp_document_symbols()<cr>
 nnoremap <leader>fd <cmd>lua require('telescope.builtin').lsp_document_diagnostics()<cr>
 nnoremap <leader>d <cmd>lua require('telescope.builtin').lsp_definitions()<cr>
-
+command Insdate :lua perso.insert_date_log()
 
 " vim-go configuration
 " affiche le type de fichier
@@ -71,3 +74,13 @@ let g:go_diagnostics_level= 1
 let g:go_fold_enable=[]
 let g:go_highlight_format_strings = 0
 
+
+augroup filetype_c
+	autocmd!
+	autocmd Filetype c setlocal tabstop=2 shiftwidth=2 expandtab
+augroup END
+
+augroup filetype_txt
+	autocmd!
+	autocmd Filetype text setlocal colorcolumn=120 textwidth=120
+augroup END

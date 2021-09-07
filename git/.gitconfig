@@ -1,6 +1,3 @@
-[user]
-	name = $GITLAB_USER
-	email = $GITLAB_MAIL
 [alias]
 	l = log --pretty=oneline -n 10  --abbrev-commit --graph
 	s = status -s
@@ -31,8 +28,9 @@
 	features = line-numbers decorations
 	line-numbers = true
 
-[url "ssh://git@git-oab.si.fr.intraorange/"]
-	insteadOf = https://git-oab.si.fr.intraorange/
 [credential "https://github.com"]
 	helper = 
 	helper = !/usr/local/bin/gh auth git-credential
+[user]
+	name = Jacques-Antoine Massé
+	email = jacquesantoine.masse@orange.com

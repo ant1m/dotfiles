@@ -1,4 +1,5 @@
-require('lualine').setup()
+
+local p = require('perso')
 options = {theme = 'gruvbox'}
 
 vim.o.completeopt = "menuone,noselect"
@@ -80,3 +81,4 @@ lspconfig.yamlls.setup{
    }
 }
 
+local perso=require('perso')
