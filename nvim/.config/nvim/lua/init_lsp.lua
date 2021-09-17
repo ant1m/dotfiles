@@ -1,5 +1,4 @@
 
-local p = require('perso')
 options = {theme = 'gruvbox'}
 
 vim.o.completeopt = "menuone,noselect"
@@ -15,13 +14,6 @@ lspconfig.gopls.setup {
 			staticcheck = true,
 		},
 	},
-	lspconfig.ccls.setup {
-		init_options = {
-			cache = {
-				directory = ".ccls-cache";
-			};
-		}
-	}
 }
 
 local nvim_lsp = require('lspconfig')
@@ -80,5 +72,3 @@ lspconfig.yamlls.setup{
       }
    }
 }
-
-local perso=require('perso')

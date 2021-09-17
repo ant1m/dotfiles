@@ -4,7 +4,7 @@
 
 # terminal emulator
 super + Return
-	st
+	~/opt/bin/st
 #	WINIT_X11_SCALE_FACTOR=1 alacritty
 
 # scratchpad
@@ -13,6 +13,11 @@ super + Return
 super + @space
 	dmenu_run
 
+super + @space
+	dmenu_run
+
+super + ctrl + @space
+	gnome-system-monitor /dev/null 2>&1
 #
 # bspwm hotkeys
 #
